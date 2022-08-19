@@ -1,1 +1,90 @@
+//class implementation using function
 
+class Bank{
+    constructor(name, accno, balance){
+    this.name = name;
+    this.accno = accno;
+    this.balance = balance;
+    }
+}
+
+const person1 = new Bank("Person1", 111222333, 10000);
+const person2 = new Bank("Person2", 444555666, 20000);
+const person3 = new Bank("Person3", 777888999, 50000);
+
+console.log(person1);
+console.log(person2);
+console.log(person3);
+// console.log(`${person1}
+// ${person2}
+// ${person3}`);
+
+
+//this keyword
+
+//ex-1
+const student1 = {
+    firstName: "Harry",
+    lastName: "Potter",
+    fullName: function(){
+        return `${this.lastName}, ${this.firstName}`;
+    }
+}
+console.log(student1.fullName());
+
+//ex-2
+const student2 = {
+    firstName: "Ron",
+    lastName: "Weasley",
+    fullName: student1.fullName
+}
+console.log(student2.fullName());
+
+//ex-3
+const printFullName = function(){
+    return this.lastName + "," + this.firstName;
+};
+console.log(printFullName());
+
+//ex-4
+const student3 = {
+    firstName: "Hermione",
+    lastName: "Granger",
+    fullName: printFullName,
+}
+console.log(student3.fullName());
+
+
+//call fuction with person1
+var stu1 = {firstName: 'Jon', lastName: 'Kuperman'};
+var stu2 = {firstName: 'Kelly', lastName: 'King'};
+
+function say(greeting) {
+    console.log(greeting + ' ' + this.firstName + ' ' + this.lastName);
+}
+say.call(stu1, 'Hello'); // Hello Jon Kuperman
+say.call(stu2, 'Hello'); // Hello Kelly King
+
+
+//apply fuction with person1
+var stu3 = {firstName: 'Jon', lastName: 'Kuperman'};
+var stu4 = {firstName: 'Kelly', lastName: 'King'};
+
+function say(greeting) {
+    console.log(greeting + ' ' + this.firstName + ' ' + this.lastName);
+}
+say.apply(stu3, ['Hello']); // Hello Jon Kuperman
+say.apply(stu4, ['Hello']); // Hello Kelly King
+
+
+//bind fuction with person1
+var stu4 = {firstName: 'Jon', lastName: 'Kuperman'};
+var stu5 = {firstName: 'Kelly', lastName: 'King'};
+
+function say() {
+    console.log('Hello ' + this.firstName + ' ' + this.lastName);
+}
+var sayHelloJon = say.bind(stu4);
+var sayHelloKelly = say.bind(stu5);
+sayHelloJon(); // Hello Jon Kuperman
+sayHelloKelly(); // Hello Kelly King
