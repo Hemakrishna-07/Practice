@@ -47,3 +47,7 @@ console.log(person3.deposit(500));
 const avengers = ["Hulk", "Iron man" ,"Black widow", "Captain america", "Hawk eye", "Thor"];
 const first6 = avengers.map (a => a.length);
 console.log(first6);
+
+const avengers = ["Hulk", "Iron man" ,"Black widow", "Captain america", "Hawk eye", "Thor"];
+const charmorethan10 = avengers.filter (a => a.length>=10);
+console.log(charmorethan10);
