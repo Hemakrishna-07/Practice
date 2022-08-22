@@ -42,3 +42,8 @@ console.log(person3.withdraw(1000000));
 console.log(person1.deposit(150));
 console.log(person2.deposit(200));
 console.log(person3.deposit(500));
+
+
+const avengers = ["Hulk", "Iron man" ,"Black widow", "Captain america", "Hawk eye", "Thor"];
+const first6 = avengers.map (a => a.length);
+console.log(first6);
