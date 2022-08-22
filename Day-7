@@ -1,1 +1,44 @@
+//class implementation using function
 
+class Bank{
+    constructor(name, accno, balance){
+    this.name = name;
+    this.accno = accno;
+    this.balance = balance;
+    }
+    getBalance() {
+        return `The balance is: ${this.balance}`;
+    }
+    withdraw(amount) {
+        if(this.balance >= amount){
+        this.balance = this.balance - amount;
+        return `The balance is: ${this.balance}`;
+        }
+        else {
+            return `Insufficient funds. ${this.getBalance()}`;
+        }
+    }
+    deposit(amount) {
+        this.balance = this.balance + amount;
+        return `The balance is: ${this.balance}`;
+    }
+}
+
+const person1 = new Bank("Person1", 111222333, 10000);
+const person2 = new Bank("Person2", 444555666, 20000);
+const person3 = new Bank("Person3", 777888999, 50000);
+
+console.log(person1);
+console.log(person2);
+console.log(person3);
+console.log(person1.getBalance());
+console.log(person2.getBalance());
+console.log(person3.getBalance());
+console.log(person1.withdraw(2450));
+console.log(person2.withdraw(10250));
+console.log(person3.withdraw(35000));
+console.log(person2.withdraw(1000000));
+console.log(person3.withdraw(1000000));
+console.log(person1.deposit(150));
+console.log(person2.deposit(200));
+console.log(person3.deposit(500));
