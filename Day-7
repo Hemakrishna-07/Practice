@@ -83,3 +83,7 @@ const scores = [
     name: "Hatfield Hodge",
   },
 ];
+
+ const mark = scores.map (m => m.marks);
+  const avg = mark.reduce((acc, curr) => (acc + curr)/2);
+  console.log(avg);
